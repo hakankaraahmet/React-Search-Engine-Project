@@ -1,12 +1,10 @@
 import React from "react";
 
 const Navbar = () => {
-    
   return (
     <header className=" header fixed-top p-0 m-0">
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm py-3 justify-content-sm-center">
         <div className="">
-            
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -25,35 +23,29 @@ const Navbar = () => {
           >
             <ul className="p-3 navbar-nav ml-auto">
               <li className="nav-item active">
-                <a
-                  className="nav-link scroll-link"
-                  title="About Me"
-                  href="#aboutme"
-                >
-                  <i className="fa fa-user m-2">  HAKKIMDA</i>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link scroll-link" title="Works" href="#works">
-                  <i className="fa fa-briefcase m-2">  ÇALIŞMALARIM</i>
+                <a className="nav-link scroll-link" title="MainPage" href="#">
+                  <i className="fas fa-home m-2"> AnaSayfa</i>
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link scroll-link"
-                  title="Comments"
-                  href="#comments"
+                  title="AboutMe"
+                  href="https://lutfullah-celenk.netlify.app"
+                  target="_blank"
                 >
-                  <i className="fa fa-comments m-2">  YORUMLAR</i>
+                  <i className="fa fa-user m-2"> Hakkımda </i>
                 </a>
               </li>
+
               <li className="nav-item">
                 <a
                   className="nav-link scroll-link"
                   title="Contact"
-                  href="#contact"
+                  href="https://github.com/lutfullahcelenk"
+                  target="_blank"
                 >
-                  <i className="fa fa-envelope m-2">  İLETİŞİM</i>
+                  <i className="fab fa-github m-2"> GitHub </i>
                 </a>
               </li>
             </ul>
