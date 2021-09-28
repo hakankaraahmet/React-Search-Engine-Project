@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <header className=" header fixed-top p-0 m-0">
+    <header className=" header p-0 m-0">
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm py-3 justify-content-sm-center">
         <div className="">
           <button
