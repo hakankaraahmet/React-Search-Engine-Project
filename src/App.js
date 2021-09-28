@@ -17,8 +17,8 @@ const App = () => {
     <Router>
       <engineContext.Provider value={data}>
         <Switch>
-          <Route exact path="/resultpage" component={ResultPage} />
-          <Route exact path = "/addpage" component={AddPage} />
+          <Route path="/resultpage" component={ResultPage} />
+          <Route path = "/addpage" component={AddPage} />
           <Route exact path = "/" component={MainPage} />
         </Switch>
       </engineContext.Provider>
