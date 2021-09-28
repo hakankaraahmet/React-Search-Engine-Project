@@ -7,7 +7,7 @@ import Card from "./Card";
 const Info = () => {
     
     const {data} = useContext(engineContext);
-    console.log(data)
+    // console.log(data)
 
     return (
         <div className="">

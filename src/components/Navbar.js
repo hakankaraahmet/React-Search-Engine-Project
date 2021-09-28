@@ -33,6 +33,7 @@ const Navbar = () => {
                   title="AboutMe"
                   href="https://lutfullah-celenk.netlify.app"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fa fa-user m-2"> Hakkımda </i>
                 </a>
@@ -44,6 +45,7 @@ const Navbar = () => {
                   title="Contact"
                   href="https://github.com/lutfullahcelenk"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fab fa-github m-2"> GitHub </i>
                 </a>
