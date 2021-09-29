@@ -5,7 +5,7 @@ import { engineContext } from "../context/engineContext";
 import Card from "./Card";
 
 const Form = () => {
-  const {data}  = useContext(engineContext);
+  const { data } = useContext(engineContext);
   // console.log(data)
 
   const history = useHistory();
@@ -61,9 +61,18 @@ const Form = () => {
               return val;
             }
           })
+          .slice(0, 3)
           .map((item, index) => (
             <Card key={index} item={item} />
           ))}
+
+        {text ? (
+          <div className="d-flex justify-content-center mt-5">
+            <button type="button" className="btn btn-lg btn-secondary">
+              Click to Load More
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
