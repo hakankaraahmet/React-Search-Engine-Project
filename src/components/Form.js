@@ -6,15 +6,18 @@ import Card from "./Card";
 
 const Form = () => {
   const { data } = useContext(engineContext);
-  // console.log(data)
-
+  
+  // Addpage ve ResultPage sayfalarına gidiş
+  
   const history = useHistory();
   const goAddPage = () => {
     history.push("/addpage");
   };
-
+  const goResult = ({text}) => {
+    history.push("/resultpage")
+  }
+  
   const [text, setText] = useState("");
-  // console.log(text);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,9 +25,9 @@ const Form = () => {
       alert("Fill in the gap...");
     } else {
       setText(text);
-      // setText("");
     }
   };
+
 
   return (
     <div className="search-bar input-group d-flex flex-column align-items-center">
@@ -68,12 +71,16 @@ const Form = () => {
 
         {text ? (
           <div className="d-flex justify-content-center mt-5">
-            <button type="button" className="btn btn-lg btn-secondary">
+            <button
+              type="button"
+              className="btn btn-lg btn-secondary"
+              onClick={goResult}
+            >
               Click to Load More
             </button>
           </div>
         ) : null}
-        
+
       </div>
     </div>
   );
