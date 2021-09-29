@@ -1,14 +1,5 @@
 
-{
-	"cols": [
-		"Name Surname",
-		"Company",
-		"Email",
-		"Date",
-		"Country",
-		"City"
-	],
-	"data": [
+const data =  [
 		[
 			"Hyacinth Vincent",
 			"Duis Corporation",
@@ -810,4 +801,5 @@
 			"Shrewsbury"
 		]
 	]
-}
+
+export default data;

@@ -9,14 +9,14 @@ const Card = ({item}) => {
     const data = useContext(engineContext);
 
   return (
-    <div className="card col-md-4 m-2" style={{width: "25rem"}}>
+    <div className="card col-md-4 mx-3 my-5" style={{width: "25rem"}}>
       <div className="card-body">
-        <h5 className="card-title">{data.cols[0]}: {item[0]} </h5>
-        <p className="card-text">{data.cols[1]}: {item[1]}</p>
-        <p className="card-text">{data.cols[2]}: {item[2]}</p>
-        <p className="card-text">{data.cols[3]}: {item[3]}</p>
-        <p className="card-text">{data.cols[4]}: {item[4]}</p>
-        <p className="card-text">{data.cols[5]}: {item[5]}</p>
+        <h5 className="card-title">{item[0]} </h5>
+        <p className="card-text"> {item[1]}</p>
+        <p className="card-text"> {item[2]}</p>
+        <p className="card-text"> {item[3]}</p>
+        <p className="card-text">{item[4]}</p>
+        <p className="card-text">{item[5]}</p>
       </div>
     </div>
   );

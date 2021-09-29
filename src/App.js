@@ -4,18 +4,19 @@ import { engineContext } from "./context/engineContext";
 import MainPage from "./pages/MainPage";
 import AddPage from "./pages/AddPage";
 import ResultPage from "./pages/ResultPage";
-import initialStates from "./store/initialStates.json";
+import initialStates from "./store/initialStates";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
 const App = () => {
   const [data, setData] = useState(initialStates);
+  // console.log(data)
 
 
   return (
     <Router>
-      <engineContext.Provider value={data}>
+      <engineContext.Provider value={{data}}>
         <Switch>
           <Route path="/resultpage" component={ResultPage} />
           <Route path="/addpage" component={AddPage} />

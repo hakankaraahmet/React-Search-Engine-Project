@@ -1,6 +1,28 @@
+
+body{
+  background-image: url("https://images.unsplash.com/photo-1516382799247-87df95d790b7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWFnbmlmeWluZyUyMGdsYXNzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .search-bar{
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
 
+.card{
+  background: linear-gradient(to bottom right, #212529 , gray);
+  box-shadow: 10px 10px lightgray;
+  color: white;
+}
+
+.card:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.searchinput:hover{
+  background: linear-gradient(to bottom right, #212529 , gray);
+  color: white;
+}

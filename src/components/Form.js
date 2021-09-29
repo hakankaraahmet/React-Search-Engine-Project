@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { useHistory } from "react-router";
 import { engineContext } from "../context/engineContext";
 import Card from "./Card";
 
-const Form = ({ getData }) => {
-  const data = useContext(engineContext);
+const Form = () => {
+  const {data}  = useContext(engineContext);
+  // console.log(data)
+
+  const history = useHistory();
+  const goAddPage = () => {
+    history.push("/addpage");
+  };
 
   const [text, setText] = useState("");
   // console.log(text);
-  const [result, setResult] = useState("");
-  // console.log(result);
 
   const handleClick = (e) => {
     e.preventDefault();
     if (!text) {
       alert("Fill in the gap...");
     } else {
-      setResult(text);
-      setText("");
+      setText(text);
+      // setText("");
     }
   };
 
@@ -27,22 +32,32 @@ const Form = ({ getData }) => {
         <input
           type="search"
           id="form1 "
-          className="form-control me-3"
+          className="form-control form-control-lg searchinput"
           placeholder="Enter name/surname"
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-        <button type="button" className="btn btn-primary" onClick={handleClick}>
+        <button type="button" className="btn btn-info" onClick={handleClick}>
           <i className="fas fa-search"></i>
         </button>
       </div>
 
-      <div className="row col-md-8 d-flex">
-        {data.data
+      <div>
+        <button
+          type="button"
+          className="btn btn-lg btn-secondary"
+          onClick={goAddPage}
+        >
+          <i className="fas fa-plus"></i> Add New Record
+        </button>
+      </div>
+
+      <div className="row col-md-9 d-flex">
+        {data
           .filter((val) => {
-            if (result === "") {
+            if (text === "") {
               return null;
-            } else if (val[0].toLowerCase().includes(result.toLowerCase())) {
+            } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
               return val;
             }
           })
