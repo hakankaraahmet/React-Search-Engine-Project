@@ -11,12 +11,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   const [data, setData] = useState(initialStates);
-  const [cols, setCols] = useState(initialStates);
 
 
   return (
     <Router>
-      <engineContext.Provider value={data,cols}>
+      <engineContext.Provider value={data}>
         <Switch>
           <Route path="/resultpage" component={ResultPage} />
           <Route path="/addpage" component={AddPage} />
