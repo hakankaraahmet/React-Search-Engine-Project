@@ -1,17 +1,47 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { engineContext } from "../context/engineContext";
+import { useContext } from "react";
 
 const AddPage = () => {
-  // const [name, setName] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [city, setCity] = useState("");
-  // const [email, setEmail] = useState("");
+
+  const {AddRecord} = useContext(engineContext)
+  const [name, setName] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [email, setEmail] = useState("");
+
+    // ARRANGING DATE
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDay();
+    const nowadays = day + "." + month + "." + year ;
 
   // MainPage sayfasına Dönüş
   const history = useHistory();
   const backMain = () => {
     history.push("/");
   };
+
+  // Add Record
+
+  const handleAdd = (e) => {
+    if(!name || !country || !city || !email) {
+      e.preventDefault();
+      alert("All the fields must be filled appropriately....");
+    }else{
+      e.preventDefault();
+      AddRecord([name, "Lorem Corps" ,email, nowadays, country,city]);
+      setName("");
+      setCountry("");
+      setCity("");
+      setEmail("");
+    };
+  }
+
+
 
   return (
     <div className="addpage w-25 m-auto mt-5">
@@ -24,7 +54,7 @@ const AddPage = () => {
       </button>
       <form className="addpage w-md-50 text-light mt-5">
         <div className="form-group mt-3">
-          <label htmlFor="namesurname" className="h6 text-dark">
+          <label htmlFor="namesurname" className="h5 text-danger">
             Name Surname
           </label>
           <input
@@ -35,11 +65,12 @@ const AddPage = () => {
             placeholder="Enter name and surname"
             minLength="4"
             maxLength="60"
-            // onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="country" className="h6 text-dark">
+          <label htmlFor="country" className="h5 text-danger">
             Country
           </label>
           <input
@@ -50,11 +81,12 @@ const AddPage = () => {
             placeholder="Enter a country"
             minLength="2"
             maxLength="40"
-            // onChange={(e) => setCountry(e.target.value)}
+            onChange={(e) => setCountry(e.target.value)}
+            required
           />
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="city" className="h6 text-dark">
+          <label htmlFor="city" className="h5 text-danger">
             City
           </label>
           <input
@@ -65,11 +97,13 @@ const AddPage = () => {
             placeholder="Enter a city"
             minLength="2"
             maxLength="40"
-            // onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => setCity(e.target.value)}
+            required
           />
+          
         </div>
         <div className="form-group mt-3">
-          <label for="email" className="h6 text-dark">
+          <label for="email" className="h5 text-danger">
             Email
           </label>
           <input
@@ -77,11 +111,12 @@ const AddPage = () => {
             type="email"
             className="form-control mt-2"
             placeholder="Enter an e-mail (abc@xyz.com)"
-            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </div>
         <div className="d-flex mt-5">
-          <button type="submit" class="btn btn-primary w-25 addbutton">
+          <button type="submit" class="btn btn-primary w-25 addbutton" onClick={handleAdd}>
             Add
           </button>
         </div>

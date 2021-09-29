@@ -13,10 +13,15 @@ const App = () => {
   const [data, setData] = useState(initialStates);
   // console.log(data)
 
+  //Add Record
+  const AddRecord = (record) => {
+    const finalData = [...data, record];
+    setData(finalData);
+  };
 
   return (
     <Router>
-      <engineContext.Provider value={{data}}>
+      <engineContext.Provider value={{ data, AddRecord }}>
         <Switch>
           <Route path="/resultpage" component={ResultPage} />
           <Route path="/addpage" component={AddPage} />
