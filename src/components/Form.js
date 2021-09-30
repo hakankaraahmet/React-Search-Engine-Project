@@ -1,22 +1,14 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import { engineContext } from "../context/engineContext";
 import Card from "./Card";
 
 const Form = () => {
   const { data } = useContext(engineContext);
-  
-  // Addpage ve ResultPage sayfalarına gidiş
-  
-  const history = useHistory();
-  const goAddPage = () => {
-    history.push("/addpage");
-  };
-  const goResult = ({text}) => {
-    history.push("/resultpage")
-  }
-  
+
+  // Search Bar Optimization
+
   const [text, setText] = useState("");
 
   const handleClick = (e) => {
@@ -28,10 +20,30 @@ const Form = () => {
     }
   };
 
+  // The Outputs
+  const output = data
+    .filter((val) => {
+      if (text === "") {
+        return null;
+      } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
+        return val;
+      }
+    })
+    .map((item, index) => <Card key={index} item={item} />);
+
+  // Addpage ve ResultPage sayfalarına gidiş
+
+  const history = useHistory();
+  const goAddPage = () => {
+    history.push("/addpage");
+  };
+  const goResult = () => {
+    history.push({ pathname: "/resultpage", output });
+  };
 
   return (
     <div className="search-bar input-group d-flex flex-column align-items-center">
-      <div className="form-outline d-flex w-50 mb-5">
+      <div className="form-outline d-flex w-50 mb-3">
         <input
           type="search"
           id="form1 "
@@ -56,18 +68,7 @@ const Form = () => {
       </div>
 
       <div className="row col-md-9 d-flex">
-        {data
-          .filter((val) => {
-            if (text === "") {
-              return null;
-            } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
-              return val;
-            }
-          })
-          .slice(0, 3)
-          .map((item, index) => (
-            <Card key={index} item={item} />
-          ))}
+        {output.slice(0, 3)}
 
         {text ? (
           <div className="d-flex justify-content-center mt-5">
@@ -80,7 +81,6 @@ const Form = () => {
             </button>
           </div>
         ) : null}
-
       </div>
     </div>
   );
