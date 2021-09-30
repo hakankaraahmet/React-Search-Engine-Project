@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { useHistory, useLocation } from "react-router";
+import { useHistory } from "react-router";
 import { engineContext } from "../context/engineContext";
 import Card from "./Card";
 
@@ -20,7 +20,7 @@ const Form = () => {
     }
   };
 
-  // The Outputs
+  // The Outputs 
   const output = data
     .filter((val) => {
       if (text === "") {
@@ -30,6 +30,8 @@ const Form = () => {
       }
     })
     .map((item, index) => <Card key={index} item={item} />);
+
+    
 
   // Addpage ve ResultPage sayfalarına gidiş
 
