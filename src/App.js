@@ -6,8 +6,11 @@ import AddPage from "./pages/AddPage";
 import ResultPage from "./pages/ResultPage";
 import initialStates from "./store/initialStates";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  toast.configure();
   const [data, setData] = useState(initialStates);
   const [text, setText] = useState("");
 
@@ -15,6 +18,7 @@ const App = () => {
   const AddRecord = (record) => {
     const finalData = [...data, record];
     setData(finalData);
+    toast(`${record[0]} IS ADDED`, { position: toast.POSITION.TOP_LEFT });
   };
 
   // OUTPUTS
@@ -26,22 +30,6 @@ const App = () => {
     }
   });
 
-  // SORTING
-
-  const handleAlphabetic = (output) => {
-    output.sort();
-  };
-
-  const handleDate = (output) => {
-    output.sort((a, b) =>
-      b[3]
-        .split("/")
-        .reverse()
-        .join()
-        .localeCompare(a[3].split("/").reverse().join())
-    );
-  };
-
   return (
     <Router>
       <engineContext.Provider
@@ -51,8 +39,6 @@ const App = () => {
           text,
           output,
           setText,
-          handleAlphabetic,
-          handleDate,
         }}
       >
         <Switch>
