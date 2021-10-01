@@ -6,7 +6,8 @@ import { engineContext } from "../context/engineContext";
 import { useContext } from "react";
 
 const ResultPage = () => {
-  const { output, handleAlphabetic, handleDate } = useContext(engineContext);
+  const { output: filteredData } = useContext(engineContext);
+  const [output, setOutput] = useState(filteredData);
 
   const history = useHistory();
   const goMain = () => {
@@ -24,6 +25,22 @@ const ResultPage = () => {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const handleAlphabetic = (output) => {
+    output.sort();
+    setOutput([...output]);
+  };
+
+  const handleDate = (output) => {
+    output.sort((a, b) =>
+      b[3]
+        .split("/")
+        .reverse()
+        .join()
+        .localeCompare(a[3].split("/").reverse().join())
+    );
+    setOutput([...output]);
   };
 
   return (
