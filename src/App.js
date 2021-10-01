@@ -7,23 +7,54 @@ import ResultPage from "./pages/ResultPage";
 import initialStates from "./store/initialStates";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
-
 const App = () => {
   const [data, setData] = useState(initialStates);
-  // console.log(data)
+  const [text, setText] = useState("");
 
-  //Add Record
+  //ADDING RECORD
   const AddRecord = (record) => {
     const finalData = [...data, record];
     setData(finalData);
   };
 
+  // OUTPUTS
+  const output = data.filter((val) => {
+    if (text === "") {
+      return null;
+    } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
+      return val;
+    }
+  });
 
+  // SORTING
+
+  const handleAlphabetic = (output) => {
+    output.sort();
+  };
+
+  const handleDate = (output) => {
+    output.sort((a, b) =>
+      b[3]
+        .split("/")
+        .reverse()
+        .join()
+        .localeCompare(a[3].split("/").reverse().join())
+    );
+  };
 
   return (
     <Router>
-      <engineContext.Provider value={{ data, AddRecord }}>
+      <engineContext.Provider
+        value={{
+          data,
+          AddRecord,
+          text,
+          output,
+          setText,
+          handleAlphabetic,
+          handleDate,
+        }}
+      >
         <Switch>
           <Route path="/resultpage" component={ResultPage} />
           <Route path="/addpage" component={AddPage} />
