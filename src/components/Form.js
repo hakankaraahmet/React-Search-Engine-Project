@@ -5,11 +5,9 @@ import { engineContext } from "../context/engineContext";
 import Card from "./Card";
 
 const Form = () => {
-  const { data } = useContext(engineContext);
+  const { data, text, output, setText } = useContext(engineContext);
 
   // Search Bar Optimization
-
-  const [text, setText] = useState("");
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -19,21 +17,6 @@ const Form = () => {
       setText(text);
     }
   };
-
-  // The Outputs 
-  const output = data
-    .filter((val) => {
-      if (text === "") {
-        return null;
-      } else if (val[0].toLowerCase().includes(text.toLowerCase())) {
-        return val;
-      }
-    })
-    .map((item, index) => <Card key={index} item={item} />);
-
-    
-
-  // Addpage ve ResultPage sayfalarına gidiş
 
   const history = useHistory();
   const goAddPage = () => {
@@ -70,9 +53,11 @@ const Form = () => {
       </div>
 
       <div className="row col-md-9 d-flex">
-        {output.slice(0, 3)}
-
-        {text ? (
+        {output.slice(0, 3).map((item, index) => (
+          <Card key={index} item={item} />
+        ))}
+        ;
+        {output.length > 3 ? (
           <div className="d-flex justify-content-center mt-5">
             <button
               type="button"
