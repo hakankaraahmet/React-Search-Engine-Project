@@ -37,7 +37,7 @@ const Form = () => {
           onChange={(e) => setText(e.target.value)}
           value={text}
         />
-        <button type="button" className="btn btn-info" onClick={handleClick}>
+        <button type="button" className="btn btn-secondary" onClick={handleClick}>
           <i className="fas fa-search"></i>
         </button>
       </div>
