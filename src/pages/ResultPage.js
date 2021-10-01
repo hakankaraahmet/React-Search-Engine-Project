@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
+import Pagination from "../components/Pagination";
 
 const ResultPage = (props) => {
   const history = useHistory();
   const goMain = () => {
     history.push("/");
   };
+
+
+  // Pagination
+  const [cards, setCards] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardPerPage, setCardPerPage] = useState(3);
+
+  
+  const indexOfLastCard = currentPage * cardPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardPerPage;
+  const currentCards = cards.slice(indexOfFirstCard, indexOfLastCard)
 
   return (
     <div className="d-flex flex-column">
@@ -19,9 +31,9 @@ const ResultPage = (props) => {
         </button>
       </div>
 
-      <div className="output col-md-10">
-          {props.location.output}
-     </div>
+      <div className="output col-md-10">{props.location.output}</div>
+
+      <Pagination cards={currentCards} />
     </div>
   );
 };
