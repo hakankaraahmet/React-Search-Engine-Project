@@ -25,19 +25,19 @@ const Navbar = () => {
               <li className="nav-item active">
                 <a className="nav-link scroll-link" title="MainPage" href="#">
                   <i className="fas fa-home m-2"> </i>
-                  ANASAYFA
+                  MAIN PAGE
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link scroll-link"
                   title="AboutMe"
-                  href="https://lutfullah-celenk.netlify.app"
+                  href="https://www.linkedin.com/in/hakan-karaahmetoglu-frontend-developer/"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <i className="fa fa-user m-2"></i>
-                  HAKKIMDA
+                  ABOUT ME
                 </a>
               </li>
 
@@ -45,7 +45,7 @@ const Navbar = () => {
                 <a
                   className="nav-link scroll-link"
                   title="Contact"
-                  href="https://github.com/lutfullahcelenk"
+                  href="https://github.com/hakankaraahmet"
                   target="_blank"
                   rel="noreferrer"
                 >
