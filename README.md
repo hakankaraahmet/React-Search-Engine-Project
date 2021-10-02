@@ -88,4 +88,9 @@ Build a Search Engine App using ReactJS.
 
 -  I got fonts from google-fonts and some icons from font-awesome
 
+## A SHORT VIEW OF APPLICATON
+
+<img src="https://media.giphy.com/media/1iE94cYnxCM6DPzECx/giphy.gif" width="40" height="40" />
+
+
 **<p align="center">&#9786; Happy Coding &#9997;</p>**
