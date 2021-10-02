@@ -90,7 +90,7 @@ Build a Search Engine App using ReactJS.
 
 ## A SHORT VIEW OF APPLICATON
 
-<img src="https://media.giphy.com/media/1iE94cYnxCM6DPzECx/giphy.gif" width="600" height="600m" />
+<img src="https://media.giphy.com/media/1iE94cYnxCM6DPzECx/giphy.gif" width="800" height="400m" />
 
 
 **<p align="center">&#9786; Happy Coding &#9997;</p>**
